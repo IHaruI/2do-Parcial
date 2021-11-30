@@ -1,7 +1,7 @@
 /*
  ============================================================================
- Name        : 2do.c
- Author      :
+ Name        : 2do Parcial.c
+ Author      : Galimany Patricio 1F
  Version     :
  Copyright   : Your copyright notice
  Description : Hello World in C, Ansi-style
