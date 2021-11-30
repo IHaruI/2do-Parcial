@@ -562,6 +562,13 @@ int ll_sort(LinkedList* this, int (*pFunc)(void* ,void*), int order)
     return returnAux;
 }
 
+/** \brief  Generará la nueva lista resultado, agregará a la misma los ítems correspondientes y la devolverá.
+ * \param pList Puntero a la lista
+ * \param fn (*fn) Recibirá una lista y una función criterio
+ * \param element void
+ * \return int Retorna Puntero
+
+ */
 LinkedList* ll_filter(LinkedList* this, int (*fn)(void* element))
 {
 	eLibro* pLibro;
