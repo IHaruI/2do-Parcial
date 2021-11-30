@@ -190,3 +190,31 @@ int boox_minotauro(void* element)
 	}
 	return retorno;
 }
+
+int boox_descuento(void* element)
+{
+	eLibro* pLibro;
+	int retorno = -1;
+	int precio;
+	int idEditorial;
+	int descuento;
+
+	pLibro = (eLibro*) element;
+
+	if(!boox_getIdEditorial(pLibro, &idEditorial) && !boox_getPrecio(pLibro, &precio))
+	{
+		if(idEditorial == 1 && precio >= 300)
+		{
+			descuento = precio - (precio * 20 / 100);
+			boox_setPrecio(pLibro, descuento);
+			retorno = 0;
+		}
+		else if(idEditorial == 2 && precio <= 200)
+		{
+			descuento = precio - (precio * 10 / 100);
+			boox_setPrecio(pLibro, descuento);
+			retorno = 0;
+		}
+	}
+	return retorno;
+}

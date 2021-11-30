@@ -110,4 +110,6 @@ int boox_sortByAutor(void* boox1, void* boox2);
 /// @return 0 si esta ok
 int boox_minotauro(void* element);
 
+int boox_descuento(void* element);
+
 #endif

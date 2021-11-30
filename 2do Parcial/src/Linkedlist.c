@@ -594,3 +594,29 @@ LinkedList* ll_filter(LinkedList* this, int (*fn)(void* element))
 	}
 	return minotauro;
 }
+
+LinkedList* ll_map(LinkedList* this, int (*fn)(void* element))
+{
+	eLibro* pLibro;
+	LinkedList* listaDeDescuento = NULL;
+	int len;
+
+	if(this != NULL && (len = ll_len(this)) > 0)
+	{
+		listaDeDescuento = ll_newLinkedList();
+
+		if(listaDeDescuento != NULL)
+		{
+			for(int i = 0; i < len; i++)
+			{
+				pLibro = ll_get(listaDeDescuento, i);
+
+				if(!fn(pLibro))
+				{
+					ll_add(listaDeDescuento, pLibro);
+				}
+			}
+		}
+	}
+	return listaDeDescuento;
+}

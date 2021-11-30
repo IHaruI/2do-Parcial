@@ -28,6 +28,7 @@ int main(void) {
 	LinkedList* listaLibros = ll_newLinkedList();
 	LinkedList* listaEditoriales = ll_newLinkedList();
 	LinkedList* listaMinotauro = NULL;
+	LinkedList* listaDeDescuento = NULL;
 
 	do
 	{
@@ -103,6 +104,19 @@ int main(void) {
 					printf("\nError, cargar datos de la opcion 1 y 2\n");
 				}
 				break;
+
+			case 6:
+				if(banderaLibros == 1 && banderaEditorial == 1)
+				{
+					listaDeDescuento = ll_map(listaLibros, boox_descuento);
+
+					controller_saveAsText("Mapeado.csv", listaDeDescuento, listaEditoriales);
+				}
+				else
+				{
+					printf("\nError, cargar datos de la opcion 1 y 2\n");
+				}
+				break;
 		}
-	}while(opcion != 6);
+	}while(opcion != 7);
 }
