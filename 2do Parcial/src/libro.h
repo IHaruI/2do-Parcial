@@ -112,4 +112,6 @@ int boox_minotauro(void* element);
 
 int boox_descuento(void* element);
 
+int getBooxs(eLibro* libro, int* id, char* titulo, char* autor, int* precio, int* idEditorial);
+
 #endif

@@ -156,7 +156,7 @@ int controller_saveAsText(char* path, LinkedList* listaLibros, LinkedList* lista
 		{
 			len = ll_len(listaLibros);
 
-			fprintf(pFile, "|  ID  |                       TITULO                       |             AUTOR              |   PRECIO   |  ID EDIT.  |     EDITORIALES      |\n");
+			fprintf(pFile, "id,titulo,autor,precio,idEditorial,editoriales\n");
 
 			for(int i = 0; i < len; i++)
 			{
@@ -164,7 +164,7 @@ int controller_saveAsText(char* path, LinkedList* listaLibros, LinkedList* lista
 
 				if(boox_getId(pLibro, &auxid) == 0 && boox_getPrecio(pLibro, &auxPrecio) == 0 && boox_getIdEditorial(pLibro, &auxIdEditorial) == 0 && boox_getTitulo(pLibro, auxTitulo) == 0 && boox_getAutor(pLibro, auxAutor) == 0 && controller_nombreEditorial(auxIdEditorial, nombreEditorial, listaEditoriales) == 0)
 				{
-					fprintf(pFile, "|%5d | %50s | %30s | %10d | %10d | %20s |\n", auxid, auxTitulo, auxAutor, auxPrecio, auxIdEditorial, nombreEditorial);
+					fprintf(pFile, "%d,%s,%s,%d,%d,%s\n", auxid, auxTitulo, auxAutor, auxPrecio, auxIdEditorial, nombreEditorial);
 					retorno = 0;
 				}
 			}
@@ -174,6 +174,60 @@ int controller_saveAsText(char* path, LinkedList* listaLibros, LinkedList* lista
 			}
 		}
 		fclose(pFile);
+	}
+	return retorno;
+}
+
+int controller_mapeado(LinkedList* listaLibros)
+{
+	int retorno = -1;
+
+	ll_map(listaLibros, boox_descuento);
+
+	if(!controller_saveAsTextDiscount(listaLibros, "Mapeado.csv"))
+	{
+		printf("\nSe ha guardado correctamente los archivo.\n");
+		retorno = 0;
+	}
+	return retorno;
+
+}
+
+int controller_saveAsTextDiscount(LinkedList* listaLibros, char* listaMapeado)
+{
+	FILE* pFile;
+	int retorno = -1;
+	int idLibro;
+	char titulo[70];
+	char autor [70];
+	int precio;
+	int idEditorial;
+	int len;
+
+	eLibro* pLibro = NULL;
+
+	if(listaLibros != NULL && listaMapeado != NULL)
+	{
+		pFile = fopen(listaMapeado, "w");
+
+		if(pFile != NULL)
+		{
+			len = ll_len(listaLibros);
+
+			fprintf(pFile, "id,titulo,autor,precio,idEditorial\n");
+
+			for(int i = 0; i < len; i++)
+			{
+				pLibro = (eLibro*) ll_get(listaLibros, i);
+
+				if(	pLibro != NULL && getBooxs(pLibro, &idLibro, titulo, autor, &precio, &idEditorial) == 0)
+				{
+					fprintf(pFile, "%d,%s,%s,%d,%d\n", idLibro, titulo, autor, precio, idEditorial);
+					retorno = 0;
+				}
+			}
+			fclose(pFile);
+		}
 	}
 	return retorno;
 }

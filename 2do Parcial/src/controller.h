@@ -45,4 +45,8 @@ int controller_nombreEditorial(int id, char* nombreEditorial, LinkedList* listaE
 /// @return 0 si esta ok
 int controller_saveAsText(char* path, LinkedList* listaLibros, LinkedList* listaEditoriales);
 
+int controller_mapeado (LinkedList* listaLibros);
+
+int controller_saveAsTextDiscount(LinkedList* listaLibros, char* listaMapeado);
+
 #endif /* CONTROLLER_H_ */

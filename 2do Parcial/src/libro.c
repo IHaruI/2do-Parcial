@@ -193,28 +193,43 @@ int boox_minotauro(void* element)
 
 int boox_descuento(void* element)
 {
-	eLibro* pLibro;
+	eLibro* libro = NULL;
 	int retorno = -1;
-	int precio;
 	int idEditorial;
+	int precio;
 	int descuento;
 
-	pLibro = (eLibro*) element;
-
-	if(!boox_getIdEditorial(pLibro, &idEditorial) && !boox_getPrecio(pLibro, &precio))
+	if (element != NULL)
 	{
-		if(idEditorial == 1 && precio >= 300)
+		libro = (eLibro*) element;
+
+		if(	boox_getIdEditorial(libro, &idEditorial) == 0 && boox_getPrecio(libro, &precio) == 0)
 		{
-			descuento = precio - (precio * 20 / 100);
-			boox_setPrecio(pLibro, descuento);
+			if(idEditorial == 1 && precio >= 300)
+			{
+				descuento = precio*0.8;
+
+				boox_setPrecio(libro, descuento);
+			}
+			else if(idEditorial == 2 && precio <= 200)
+			{
+				descuento = precio*0.9;
+
+				boox_setPrecio(libro, descuento);
+			}
 			retorno = 0;
 		}
-		else if(idEditorial == 2 && precio <= 200)
-		{
-			descuento = precio - (precio * 10 / 100);
-			boox_setPrecio(pLibro, descuento);
-			retorno = 0;
-		}
+	}
+	return retorno;
+}
+
+int getBooxs(eLibro* libro, int* id, char* titulo, char* autor, int* precio, int* idEditorial)
+{
+	int retorno = -1;
+
+	if(libro != NULL && boox_getId(libro, id) == 0 && boox_getTitulo(libro, titulo) == 0 && boox_getAutor(libro, autor) == 0 && boox_getPrecio(libro, precio) == 0 && boox_getIdEditorial(libro, idEditorial) == 0)
+	{
+		retorno = 0;
 	}
 	return retorno;
 }

@@ -1,5 +1,5 @@
-|  ID  |                       TITULO                       |             AUTOR              |   PRECIO   |  ID EDIT.  |     EDITORIALES      |
-|   25 |                         El alba de la civilización |                    G. Grimberg |        450 |          4 |            MINOTAURO |
-|   14 |                                    Cartas astrales |                     John Filbe |        350 |          4 |            MINOTAURO |
-|    7 |                               La voz del gran jefe |                          Pigna |        500 |          4 |            MINOTAURO |
-|    4 |                                          Antología |                Textos biblicos |        500 |          4 |            MINOTAURO |
+id,titulo,autor,precio,idEditorial,editoriales
+4,Antología,Textos biblicos,500,4,MINOTAURO
+7,La voz del gran jefe,Pigna,500,4,MINOTAURO
+14,Cartas astrales,John Filbe,350,4,MINOTAURO
+25,El alba de la civilización,G. Grimberg,450,4,MINOTAURO

@@ -28,11 +28,10 @@ int main(void) {
 	LinkedList* listaLibros = ll_newLinkedList();
 	LinkedList* listaEditoriales = ll_newLinkedList();
 	LinkedList* listaMinotauro = NULL;
-	LinkedList* listaDeDescuento = NULL;
 
 	do
 	{
-		utn_getNumero(&opcion, "\n1. Cargar archivos de libros\n2. Cargar archivos de editoriales\n3. Listar libros por autor\n4. Mostrar todos los datos mas el nombre de la editorial\n5. Listado de los libros Minotauro\n6. Salir\n\nIngrese unas de las opciones dadas: ", "\nError, Ingrese una de las opciones mostradas.", 1, 7, 3);
+		utn_getNumero(&opcion, "\n1. Cargar archivos de libros\n2. Cargar archivos de editoriales\n3. Listar libros por autor\n4. Mostrar todos los datos mas el nombre de la editorial\n5. Listado de los libros Minotauro\n6. Cargar descuento\n7. Salir\n\nIngrese unas de las opciones dadas: ", "\nError, Ingrese una de las opciones mostradas.", 1, 7, 3);
 
 		switch(opcion)
 		{
@@ -108,9 +107,7 @@ int main(void) {
 			case 6:
 				if(banderaLibros == 1 && banderaEditorial == 1)
 				{
-					listaDeDescuento = ll_map(listaLibros, boox_descuento);
-
-					controller_saveAsText("Mapeado.csv", listaDeDescuento, listaEditoriales);
+					controller_mapeado(listaLibros);
 				}
 				else
 				{
