@@ -107,7 +107,7 @@ int main(void) {
 			case 6:
 				if(banderaLibros == 1 && banderaEditorial == 1)
 				{
-					controller_mapeado(listaLibros);
+					controller_mapeado(listaLibros, listaEditoriales);
 				}
 				else
 				{

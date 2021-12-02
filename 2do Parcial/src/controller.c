@@ -162,7 +162,7 @@ int controller_saveAsText(char* path, LinkedList* listaLibros, LinkedList* lista
 			{
 				pLibro = ll_get(listaLibros, i);
 
-				if(boox_getId(pLibro, &auxid) == 0 && boox_getPrecio(pLibro, &auxPrecio) == 0 && boox_getIdEditorial(pLibro, &auxIdEditorial) == 0 && boox_getTitulo(pLibro, auxTitulo) == 0 && boox_getAutor(pLibro, auxAutor) == 0 && controller_nombreEditorial(auxIdEditorial, nombreEditorial, listaEditoriales) == 0)
+				if(!boox_getId(pLibro, &auxid) && !boox_getTitulo(pLibro, auxTitulo) && !boox_getAutor(pLibro, auxAutor) && !boox_getPrecio(pLibro, &auxPrecio) && !boox_getIdEditorial(pLibro, &auxIdEditorial) && !controller_nombreEditorial(auxIdEditorial, nombreEditorial, listaEditoriales))
 				{
 					fprintf(pFile, "%d,%s,%s,%d,%d,%s\n", auxid, auxTitulo, auxAutor, auxPrecio, auxIdEditorial, nombreEditorial);
 					retorno = 0;
@@ -178,13 +178,13 @@ int controller_saveAsText(char* path, LinkedList* listaLibros, LinkedList* lista
 	return retorno;
 }
 
-int controller_mapeado(LinkedList* listaLibros)
+int controller_mapeado(LinkedList* listaLibros, LinkedList* listaEditoriales)
 {
 	int retorno = -1;
 
 	ll_map(listaLibros, boox_descuento);
 
-	if(!controller_saveAsTextDiscount(listaLibros, "Mapeado.csv"))
+	if(!controller_saveAsTextDiscount(listaLibros, "Mapeado.csv", listaEditoriales))
 	{
 		printf("\nSe ha guardado correctamente los archivo.\n");
 		retorno = 0;
@@ -193,15 +193,16 @@ int controller_mapeado(LinkedList* listaLibros)
 
 }
 
-int controller_saveAsTextDiscount(LinkedList* listaLibros, char* listaMapeado)
+int controller_saveAsTextDiscount(LinkedList* listaLibros, char* listaMapeado, LinkedList* listaEditoriales)
 {
 	FILE* pFile;
 	int retorno = -1;
-	int idLibro;
-	char titulo[70];
-	char autor [70];
-	int precio;
-	int idEditorial;
+	int auxid;
+	char auxTitulo[70];
+	char auxAutor[70];
+	int auxPrecio;
+	int auxIdEditorial;
+	char nombreEditorial[70];
 	int len;
 
 	eLibro* pLibro = NULL;
@@ -214,15 +215,15 @@ int controller_saveAsTextDiscount(LinkedList* listaLibros, char* listaMapeado)
 		{
 			len = ll_len(listaLibros);
 
-			fprintf(pFile, "id,titulo,autor,precio,idEditorial\n");
+			fprintf(pFile, "id,titulo,autor,precio,idEditorial,editoriales\n");
 
 			for(int i = 0; i < len; i++)
 			{
 				pLibro = (eLibro*) ll_get(listaLibros, i);
 
-				if(	pLibro != NULL && getBooxs(pLibro, &idLibro, titulo, autor, &precio, &idEditorial) == 0)
+				if(pLibro != NULL && !boox_getId(pLibro, &auxid) && !boox_getTitulo(pLibro, auxTitulo) && !boox_getAutor(pLibro, auxAutor) && !boox_getPrecio(pLibro, &auxPrecio) && !boox_getIdEditorial(pLibro, &auxIdEditorial) && !controller_nombreEditorial(auxIdEditorial, nombreEditorial, listaEditoriales))
 				{
-					fprintf(pFile, "%d,%s,%s,%d,%d\n", idLibro, titulo, autor, precio, idEditorial);
+					fprintf(pFile, "%d,%s,%s,%d,%d,%s\n", auxid, auxTitulo, auxAutor, auxPrecio, auxIdEditorial, nombreEditorial);
 					retorno = 0;
 				}
 			}

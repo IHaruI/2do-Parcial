@@ -203,33 +203,22 @@ int boox_descuento(void* element)
 	{
 		libro = (eLibro*) element;
 
-		if(	boox_getIdEditorial(libro, &idEditorial) == 0 && boox_getPrecio(libro, &precio) == 0)
+		if(boox_getIdEditorial(libro, &idEditorial) == 0 && boox_getPrecio(libro, &precio) == 0)
 		{
 			if(idEditorial == 1 && precio >= 300)
 			{
-				descuento = precio*0.8;
+				descuento = precio * 0.8;
 
 				boox_setPrecio(libro, descuento);
 			}
 			else if(idEditorial == 2 && precio <= 200)
 			{
-				descuento = precio*0.9;
+				descuento = precio * 0.9;
 
 				boox_setPrecio(libro, descuento);
 			}
 			retorno = 0;
 		}
-	}
-	return retorno;
-}
-
-int getBooxs(eLibro* libro, int* id, char* titulo, char* autor, int* precio, int* idEditorial)
-{
-	int retorno = -1;
-
-	if(libro != NULL && boox_getId(libro, id) == 0 && boox_getTitulo(libro, titulo) == 0 && boox_getAutor(libro, autor) == 0 && boox_getPrecio(libro, precio) == 0 && boox_getIdEditorial(libro, idEditorial) == 0)
-	{
-		retorno = 0;
 	}
 	return retorno;
 }

@@ -45,8 +45,19 @@ int controller_nombreEditorial(int id, char* nombreEditorial, LinkedList* listaE
 /// @return 0 si esta ok
 int controller_saveAsText(char* path, LinkedList* listaLibros, LinkedList* listaEditoriales);
 
-int controller_mapeado (LinkedList* listaLibros);
+/// @fn int controller_mapeado(LinkedList*, LinkedList*)
+/// @brief Se encarga de obtener una lista con los descuento y los guarda en el archivo
+/// @param listaLibros Linkedlist*
+/// @param listaEditoriales Linkedlist*
+/// @return 0 si esta ok
+int controller_mapeado(LinkedList* listaLibros, LinkedList* listaEditoriales);
 
-int controller_saveAsTextDiscount(LinkedList* listaLibros, char* listaMapeado);
+/// @fn int controller_saveAsTextDiscount(LinkedList*, char*, LinkedList*)
+/// @brief Se guarda los datos en Mapeado.csv
+/// @param listaLibros Linkedlist*
+/// @param listaMapeado Puntero al archivo a cargar
+/// @param listaEditoriales Linkedlist*
+/// @return 0 si esta ok
+int controller_saveAsTextDiscount(LinkedList* listaLibros, char* listaMapeado, LinkedList* listaEditoriales);
 
 #endif /* CONTROLLER_H_ */

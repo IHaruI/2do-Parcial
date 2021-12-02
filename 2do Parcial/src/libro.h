@@ -110,8 +110,10 @@ int boox_sortByAutor(void* boox1, void* boox2);
 /// @return 0 si esta ok
 int boox_minotauro(void* element);
 
+/// @fn int boox_descuento(void*)
+/// @brief Se hace el descuento a las editoriales con ID 1 y 2
+/// @param element Recibe parametro para ser asignado
+/// @return 0 si esta ok
 int boox_descuento(void* element);
-
-int getBooxs(eLibro* libro, int* id, char* titulo, char* autor, int* precio, int* idEditorial);
 
 #endif

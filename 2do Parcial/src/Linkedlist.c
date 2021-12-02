@@ -595,14 +595,18 @@ LinkedList* ll_filter(LinkedList* this, int (*fn)(void* element))
 	return minotauro;
 }
 
-int ll_map (LinkedList* lista, int (*fn) (void*))
+/// @fn int ll_map(LinkedList*, int(*)(void*))
+/// @brief Mapea los elementos de la lista mediante la funcion criterio pasada por parametro
+/// @param lista Puntero a la lista
+/// @param fn Puntero a la funcion criterio
+/// @return 0 si esta ok
+int ll_map(LinkedList* lista, int (*fn) (void*))
 {
-	int estado;
-	estado = -1;
+	int retorno = -1;
 
 	void* pElement = NULL;
 
-	if (lista != NULL)
+	if(lista != NULL)
 	{
 		for(int i = 0; i < ll_len(lista); i++)
 		{
@@ -610,9 +614,7 @@ int ll_map (LinkedList* lista, int (*fn) (void*))
 
 			fn(pElement);
 		}
-
-		estado = 0;
+		retorno = 0;
 	}
-
-	return estado;
+	return retorno;
 }
