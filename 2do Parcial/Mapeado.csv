@@ -1,26 +1,26 @@
 id,titulo,autor,precio,idEditorial,editoriales
-1,5 semanas en globo,Julio Verne,360,1,PLANETA
-2,Alsino ,Pedro Prado,288,1,PLANETA
-3,Amadís de Guala,Lewis Carroll,350,2,SIGLO XXI EDITORES
-4,Antología,Textos biblicos,500,4,MINOTAURO
-5,Antología poética,Francisco de Quevedo,700,6,PENGUIN BOOKS
-6,Artículos de costumbres,Mariano José de Larra,200,5,SALAMANDRA
-7,La voz del gran jefe,Pigna,500,4,MINOTAURO
-8, Asesinato en el Canadian Express,Eric Wilson,400,3,PEARSON
-9,Aunque es de noche,Carlos Bolton,600,3,PEARSON
-10,Bajo el signo de Richelieu,G. Grimber,310,6,PENGUIN BOOKS
-11,Cándido y otros cuentos,Voltair,650,5,SALAMANDRA
-12,Cantar de Mío Cid,Baum Frank,300,2,SIGLO XXI EDITORES
-13,Cantos,Giacomo Leopard,250,1,PLANETA
-14,Cartas astrales,John Filbe,350,4,MINOTAURO
-15,Crimen y castig,Fedor Dostoievs,420,6,PENGUIN BOOKS
-16,Cuando Hitler robó el conejo rosa,Judith Kerr,1000,5,SALAMANDRA
-17,Cuentos con alma II,Rosario Gomez,100,3,PEARSON
-18,Cuentos de grimm,Hermanos Grimm,320,1,PLANETA
-19,De nailonia a Persia,G. Grimberg,350,2,SIGLO XXI EDITORES
-20,Dioses y héroes de la mitología griega,Ana María Shua,800,2,SIGLO XXI EDITORES
-21,Don Quijote de la Mancha I,Miguel de Cervantes,500,6,PENGUIN BOOKS
-22,Don Quijote de la Mancha II,Miguel de Cervantes,650,3,PEARSON
-23,Dr. Jekylly y Mr. Hyde,Robert L. Stevenson,400,1,PLANETA
-24,El agua de la vida,Manuel Alfonseca,400,6,PENGUIN BOOKS
-25,El alba de la civilización,G. Grimberg,450,4,MINOTAURO
+1,5 semanas en globo,Julio Verne,360.00,1,PLANETA
+2,Alsino ,Pedro Prado,288.00,1,PLANETA
+3,Amadís de Guala,Lewis Carroll,350.00,2,SIGLO XXI EDITORES
+4,Antología,Textos biblicos,500.00,4,MINOTAURO
+5,Antología poética,Francisco de Quevedo,700.00,6,PENGUIN BOOKS
+6,Artículos de costumbres,Mariano José de Larra,200.00,5,SALAMANDRA
+7,La voz del gran jefe,Pigna,500.00,4,MINOTAURO
+8, Asesinato en el Canadian Express,Eric Wilson,400.00,3,PEARSON
+9,Aunque es de noche,Carlos Bolton,600.00,3,PEARSON
+10,Bajo el signo de Richelieu,G. Grimber,310.00,6,PENGUIN BOOKS
+11,Cándido y otros cuentos,Voltair,650.00,5,SALAMANDRA
+12,Cantar de Mío Cid,Baum Frank,300.00,2,SIGLO XXI EDITORES
+13,Cantos,Giacomo Leopard,250.00,1,PLANETA
+14,Cartas astrales,John Filbe,350.00,4,MINOTAURO
+15,Crimen y castig,Fedor Dostoievs,420.00,6,PENGUIN BOOKS
+16,Cuando Hitler robó el conejo rosa,Judith Kerr,1000.00,5,SALAMANDRA
+17,Cuentos con alma II,Rosario Gomez,100.00,3,PEARSON
+18,Cuentos de grimm,Hermanos Grimm,320.00,1,PLANETA
+19,De nailonia a Persia,G. Grimberg,350.00,2,SIGLO XXI EDITORES
+20,Dioses y héroes de la mitología griega,Ana María Shua,800.00,2,SIGLO XXI EDITORES
+21,Don Quijote de la Mancha I,Miguel de Cervantes,500.00,6,PENGUIN BOOKS
+22,Don Quijote de la Mancha II,Miguel de Cervantes,650.00,3,PEARSON
+23,Dr. Jekylly y Mr. Hyde,Robert L. Stevenson,400.00,1,PLANETA
+24,El agua de la vida,Manuel Alfonseca,400.00,6,PENGUIN BOOKS
+25,El alba de la civilización,G. Grimberg,450.00,4,MINOTAURO

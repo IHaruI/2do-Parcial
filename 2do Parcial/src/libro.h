@@ -74,14 +74,14 @@ int boox_getAutor(eLibro* this, char* autor);
 /// @param this eLibro*
 /// @param precio Pasado por el libro
 /// @return 0 si esta ok
-int boox_setPrecio(eLibro* this, int precio);
+int boox_setPrecio(eLibro* this, float precio);
 
 /// @fn int boox_getPrecio(eLibro*, int*)
 /// @brief Obtiene el precio del libro
 /// @param this eLibro*
 /// @param precio La cual obtiene el precio
 /// @return 0 si esta ok
-int boox_getPrecio(eLibro* this, int* precio);
+int boox_getPrecio(eLibro* this, float* precio);
 
 /// @fn int boox_setIdEditorial(eLibro*, int)
 /// @brief Coloca el Id de Editorial al libro

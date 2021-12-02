@@ -82,7 +82,7 @@ int controller_ListBooxs(LinkedList* listaLibros, LinkedList* listaEditoriales)
 	int auxid;
 	char auxTitulo[70];
 	char auxAutor[70];
-	int auxPrecio;
+	float auxPrecio;
 	int auxIdEditorial;
 	char nombreEditorial[70];
 	int len;
@@ -101,7 +101,7 @@ int controller_ListBooxs(LinkedList* listaLibros, LinkedList* listaEditoriales)
 
 			if(!boox_getId(pLibro, &auxid) && !boox_getTitulo(pLibro, auxTitulo) && !boox_getAutor(pLibro, auxAutor) && !boox_getPrecio(pLibro, &auxPrecio) && !boox_getIdEditorial(pLibro, &auxIdEditorial) && !controller_nombreEditorial(auxIdEditorial, nombreEditorial, listaEditoriales))
 			{
-				printf("|%5d | %50s | %30s | %10d | %10d | %20s |\n", auxid, auxTitulo, auxAutor, auxPrecio, auxIdEditorial, nombreEditorial);
+				printf("|%5d | %50s | %30s | %10.2f | %10d | %20s |\n", auxid, auxTitulo, auxAutor, auxPrecio, auxIdEditorial, nombreEditorial);
 				printf("¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯\n");
 				retorno = 0;
 			}
@@ -143,7 +143,7 @@ int controller_saveAsText(char* path, LinkedList* listaLibros, LinkedList* lista
 	int auxid;
 	char auxTitulo[70];
 	char auxAutor[70];
-	int auxPrecio;
+	float auxPrecio;
 	int auxIdEditorial;
 	char nombreEditorial[70];
 	int len;
@@ -164,7 +164,7 @@ int controller_saveAsText(char* path, LinkedList* listaLibros, LinkedList* lista
 
 				if(!boox_getId(pLibro, &auxid) && !boox_getTitulo(pLibro, auxTitulo) && !boox_getAutor(pLibro, auxAutor) && !boox_getPrecio(pLibro, &auxPrecio) && !boox_getIdEditorial(pLibro, &auxIdEditorial) && !controller_nombreEditorial(auxIdEditorial, nombreEditorial, listaEditoriales))
 				{
-					fprintf(pFile, "%d,%s,%s,%d,%d,%s\n", auxid, auxTitulo, auxAutor, auxPrecio, auxIdEditorial, nombreEditorial);
+					fprintf(pFile, "%d,%s,%s,%.2f,%d,%s\n", auxid, auxTitulo, auxAutor, auxPrecio, auxIdEditorial, nombreEditorial);
 					retorno = 0;
 				}
 			}
@@ -200,7 +200,7 @@ int controller_saveAsTextDiscount(LinkedList* listaLibros, char* listaMapeado, L
 	int auxid;
 	char auxTitulo[70];
 	char auxAutor[70];
-	int auxPrecio;
+	float auxPrecio;
 	int auxIdEditorial;
 	char nombreEditorial[70];
 	int len;
@@ -223,7 +223,7 @@ int controller_saveAsTextDiscount(LinkedList* listaLibros, char* listaMapeado, L
 
 				if(pLibro != NULL && !boox_getId(pLibro, &auxid) && !boox_getTitulo(pLibro, auxTitulo) && !boox_getAutor(pLibro, auxAutor) && !boox_getPrecio(pLibro, &auxPrecio) && !boox_getIdEditorial(pLibro, &auxIdEditorial) && !controller_nombreEditorial(auxIdEditorial, nombreEditorial, listaEditoriales))
 				{
-					fprintf(pFile, "%d,%s,%s,%d,%d,%s\n", auxid, auxTitulo, auxAutor, auxPrecio, auxIdEditorial, nombreEditorial);
+					fprintf(pFile, "%d,%s,%s,%.2f,%d,%s\n", auxid, auxTitulo, auxAutor, auxPrecio, auxIdEditorial, nombreEditorial);
 					retorno = 0;
 				}
 			}

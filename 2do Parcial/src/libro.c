@@ -32,7 +32,7 @@ eLibro* boox_newParametros(char* idStr, char* tituloStr, char* autorStr, char* p
 		boox_setId(pLibro, atoi(idStr));
 		boox_setTitulo(pLibro, tituloStr);
 		boox_setAutor(pLibro, autorStr);
-		boox_setPrecio(pLibro, atoi(precioStr));
+		boox_setPrecio(pLibro, atof(precioStr));
 		boox_setIdEditorial(pLibro, atoi(idEditorialStr));
 	}
 	return pLibro;
@@ -108,7 +108,7 @@ int boox_getAutor(eLibro* this, char* autor)
 	return retorno;
 }
 
-int boox_setPrecio(eLibro* this, int precio)
+int boox_setPrecio(eLibro* this, float precio)
 {
 	int retorno = -1;
 
@@ -119,7 +119,7 @@ int boox_setPrecio(eLibro* this, int precio)
 	}
 	return retorno;
 }
-int boox_getPrecio(eLibro* this, int* precio)
+int boox_getPrecio(eLibro* this, float* precio)
 {
 	int retorno = -1;
 
@@ -196,7 +196,7 @@ int boox_descuento(void* element)
 	eLibro* libro = NULL;
 	int retorno = -1;
 	int idEditorial;
-	int precio;
+	float precio;
 	int descuento;
 
 	if (element != NULL)
